@@ -1,0 +1,30 @@
+[project]
+name = "bibtex-normalizer"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Julien Knafou", email = "julien.knafou@gmail.com" }
+]
+dependencies = [
+    "bibtexparser >= 1.4",
+    "typing_extensions >= 4.0; python_version < '3.10'"
+]
+readme = "README.md"
+requires-python = ">= 3.12"
+
+[project.scripts]
+bibtex-normalizer = "bibtex_normalizer.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bibtex_normalizer"]
