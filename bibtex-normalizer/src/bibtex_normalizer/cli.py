@@ -12,8 +12,7 @@ def setup_parser():
     
     parser.add_argument('-O', '--output',
                        type=str, 
-                       default="../bibliography/references_normalized.bib",
-                       help="Output file path")
+                       help="Output file path (by default, add '_normalized' to the input file name)")
     
     parser.add_argument('-V', '--verbose',
                        action="store_true",
