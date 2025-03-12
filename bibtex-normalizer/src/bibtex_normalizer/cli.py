@@ -7,7 +7,7 @@ def setup_parser():
     
     parser.add_argument('-I', '--input', 
                        type=str, 
-                       default="../bibliography/references.bib",
+                       default="./bibliography/references.bib",
                        help="Input BibTeX file path")
     
     parser.add_argument('-O', '--output',
