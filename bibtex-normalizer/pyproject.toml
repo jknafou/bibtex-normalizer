@@ -9,7 +9,7 @@ dependencies = [
     "bibtexparser >= 1.4",
     "typing_extensions >= 4.0; python_version < '3.10'"
 ]
-readme = "README.md"
+readme = "../README.md"
 requires-python = ">= 3.12"
 
 [project.scripts]
