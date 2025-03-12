@@ -6,7 +6,6 @@ import re
 from .capitalizer import capitalize_title
 from .capitalizer import dynamic_bounding_pattern
 
-# Declare global variable
 global month_dict
 month_dict = {}
 
@@ -44,6 +43,10 @@ def format_field(key: str, value: str, strings: Dict) -> str:
         cleaned_value = month_dict[value.get_value()]
     if key == "title":
         cleaned_value = capitalize_title(cleaned_value)
+    # Write any field you want to process here, for example, for author
+    # if key == "author":
+    #     cleaned_value = process_author
+
     return f'    {key} = {{{cleaned_value}}},'
 
 def extract_content(text: str) -> str:
