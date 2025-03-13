@@ -1,4 +1,5 @@
 import argparse
+from pathlib import Path
 
 def setup_parser():
     parser = argparse.ArgumentParser(
@@ -7,7 +8,7 @@ def setup_parser():
     
     parser.add_argument('-I', '--input', 
                        type=str, 
-                       default="./bibliography/references.bib",
+                       default=Path(".") / "bibliography" / "references.bib",
                        help="Input BibTeX file path")
     
     parser.add_argument('-O', '--output',

@@ -2,7 +2,7 @@ import bibtexparser
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.bibdatabase import as_text
 from typing import Dict
-import re
+import re, os
 from .capitalizer import capitalize_title
 from .capitalizer import dynamic_bounding_pattern
 
@@ -13,7 +13,7 @@ def process_bibtex_file(input_path: str, output_path: str) -> None:
     global month_dict
     parser = BibTexParser(common_strings=True, interpolate_strings=False)
 
-    with open(input_path, 'r') as f:
+    with open(input_path, 'r', encoding='utf8') as f:
         bib_db = bibtexparser.load(f, parser=parser)
     
     month_dict = {value: key for key, value in bib_db.strings.items()}
@@ -23,8 +23,8 @@ def process_bibtex_file(input_path: str, output_path: str) -> None:
         for entry in bib_db.entries
     ]
     
-    with open(output_path, 'w') as f:
-        f.write("\n\n".join(processed_entries))
+    with open(output_path, 'w', encoding='utf8') as f:
+        f.write((os.linesep + os.linesep).join(processed_entries))
 
 def process_entry(entry: Dict, strings: Dict) -> str:
     lines = [
@@ -33,7 +33,7 @@ def process_entry(entry: Dict, strings: Dict) -> str:
          if k not in ('ENTRYTYPE', 'ID')],
         "}"
     ]
-    return "\n".join(lines)
+    return os.linesep.join(lines)
 
 def format_field(key: str, value: str, strings: Dict) -> str:
     global month_dict

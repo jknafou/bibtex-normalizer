@@ -9,4 +9,6 @@ wheels/
 # venv
 .venv
 
+# Misc.
 *.lock
+*/references_normalized.bib

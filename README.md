@@ -21,41 +21,57 @@ git clone git@github.com:jknafou/bibtex-normalizer.git
 
 2. **Navigate to the project directory**:
 ```bash
-cd bibtex-normalizer/bibtex-normalizer
+cd bibtex-normalizer/
 ```
 
-3. **Install dependencies using Rye**:
+3. (Option 1) **Install dependencies using Rye**:
 
 ```bash
 rye sync
+. .venv/bin/activate      # .\venv\Scripts\activate on Windows```
 ```
 
+3. (Option 2) **Install dependencies using pip on a venv**:
 
+```bash
+python -m venv .venv
+.venv/bin/activate      # .\venv\Scripts\activate on Windows```
+pip install .
+```
+
+**One shot installation using pip+git on a venv**:
+
+Here, skip step 1 & 2 and run the following commands:
+```bash
+python -m venv .venv
+.venv/bin/activate      # .\venv\Scripts\activate on Windows```
+pip install git+https://github.com/jknafou/bibtex-normalizer.git
+```
 ## Usage
 
 Normalize a `.bib` file:
 
 ```bash
-rye run bibtex-normalizer --input <input_file> --output <output_file>
+bibtex-normalizer --input <input_file> --output <output_file>
 ```
 
 ### Demo
 To test the program, you can use the provided example file `references.bib` by running the following command:
 
 ```bash
-rye run bibtex-normalizer
+bibtex-normalizer
 ```
 
 ### Examples
 1. **Specify both input and output files**:
 ```bash
-rye run bibtex-normalizer --input example.bib --output example_normalized.bib
+bibtex-normalizer --input example.bib --output example_normalized.bib
 ```
 
 2. **Use default output naming** (input filename + "_normalized" suffix):
 
 ```bash
-rye run bibtex-normalizer --input example.bib
+bibtex-normalizer --input example.bib
 ```
 
 ## Contributing
