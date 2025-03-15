@@ -13,7 +13,7 @@ def process_bibtex_file(input_path: str, output_path: str) -> None:
     global month_dict
     parser = BibTexParser(common_strings=True, interpolate_strings=False)
 
-    with open(input_path, 'r', encoding='utf8') as f:
+    with open(input_path, 'r', encoding='utf-8') as f:
         bib_db = bibtexparser.load(f, parser=parser)
     
     month_dict = {value: key for key, value in bib_db.strings.items()}
@@ -23,7 +23,7 @@ def process_bibtex_file(input_path: str, output_path: str) -> None:
         for entry in bib_db.entries
     ]
     
-    with open(output_path, 'w', encoding='utf8') as f:
+    with open(output_path, 'w', encoding='utf-8') as f:
         f.write((os.linesep + os.linesep).join(processed_entries))
 
 def process_entry(entry: Dict, strings: Dict) -> str:
