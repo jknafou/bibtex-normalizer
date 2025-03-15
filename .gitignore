@@ -11,4 +11,5 @@ wheels/
 
 # Misc.
 *.lock
+.DS_Store
 */references_normalized.bib
